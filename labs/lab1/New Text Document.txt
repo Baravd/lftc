@@ -1,0 +1,82 @@
+LFTC - Lab 1, Part 1
+The programs
+
+compute the circumference (perimeter) and area of circle with a given radius
+
+Circle c;
+real circumference, area;
+input(c.radius);
+circumference = 2 * PI * c.radius;
+area = PI * PI * c.radius; 
+output(circumference);
+output(area);
+
+
+determine greatest common divisor of two natural numbers
+
+int x, y, aux;
+input(x);
+input(y);
+while( y!=0) begin:
+	aux = x%y;
+x = y;
+y = aux;
+end;
+output(x);
+
+computes the sum of n real numbers 
+
+int n, x, sum;
+sum = 0;
+while(n > 0) begin:
+	input(x);
+	sum = sum + x;
+	n = n - 1;
+end;
+output(sum);
+
+
+
+
+
+
+
+
+The specification (EBNF)
+
+program = var_declaration; statements;.
+
+var_declaration = type var_list;.
+type = predefined_type | user_defined_type.
+predefined_type = “int” | “real”.
+user_defined_type = “Circle”.
+var_list = id [, var_list].
+id = {“a”|”b”|”c”|...|”z”|”A”|”B”|”C”|...|”Z”|}*.
+
+statements = statement;[statements].
+statement = assign_stmt | input_stmt | output_stmt | loop_stmt | 
+    conditional_stmt.
+
+assign_stmt = id “=” expr.
+expr = id | const | id operator expr.
+operator = “+” | “*” | “-” | “/” | “%”.
+const = non_zero { digit } | non_zero { digit } . { digit } non_zero 
+| “0”.
+non_zero = “1” | “2” | “3” | … “9”.
+digit = “0” | non_zero.
+
+
+input_stmt = “input(“ id “)”.
+output_stmt = “output(“ id | expr “)”.
+
+loop_stmt = “while” “(“ logical_expr “)” “begin:” statements “end;”.
+logical_expr = id logical_op id | id logical_op const | 
+    const logical_op id | const logical_op const | “true” | “false”.
+logical_op = “<” | “<=” | “>” | “>=” | “==” | “!=”.
+
+conditional_stmt = “if” “(“ logical_expr “)” “begin:” statements 
+“end;”
+
+	
+
+
