@@ -1,0 +1,80 @@
+//circumpherence and a area of a cirlce 
+	
+	type Circle {
+		const pi=3.142; /////////////
+		float radiu, area, perimeter;
+	}
+	Circle c;	
+	
+	read(c.radius);/////////////////////// c. somethig
+	c.perimeter = 2*c.pi*c.radius;
+	c.area = c.pi*c.pi*radius;
+	print(c.perimeter);
+	print(c.area)
+
+//gcd of two natural numbers
+
+	int x, y, aux;
+	read(x);
+	read(y);
+	while(y !=0) {
+		aux = x%y;
+		x=y;
+		y=aux;
+	}
+	print(x)
+//sum of n real numbers
+
+	int n;
+	float x, sum;
+	sum = 0;
+	read(n);
+	while(n>0) {
+		read(x);
+		sum=sum+x;
+		n=n-1;
+
+	}
+	print(sum)
+
+EBNF specification
+
+progam = declar_userTypes declar_variables  declar_const comp_stmt.
+declar_userTypes = "type" "idType {" [declar_const] declar_variables    "}".
+declar_variable = (predefined_type | user_defined_type)  var_list ";" .  
+declar_const = const id = const_expr;.
+user_defined_type = "type" idType "{" declar_variables   "}".
+id={"a"|"b"|"c"|...|"z"|"A"|"B"|"C"|...|"Z"|}*.
+
+predefined_type= "int" | "float";
+
+var_list=id | {id","}id ;
+
+statements = statement [statements]
+statement = assign_stmt | read_stmt | print_stmt | loop_stmt | if_stmt.
+assign_stmt=id "=" arith_expr.
+arith_expr = const_expr | id | id operator   arith_expr|  id.id operator arith_expr   .
+operator="+" | "*" | "-" | "/" | "%".
+
+const_expr = non_zero { digit } | non_zero { digit } . { digit } non_zero | "0".
+non_zero = "1" | "2" | "3" | … "9".
+digit = "0" | non_zero.
+
+read_stmt = "read(" id |id.id ")".
+print_stmt = "print(" id | expr | id.id ")".
+
+loop_stmt = "while" "(" logical_expr ")" "{" statements "}".
+logical_expr = id logical_op id | id logical_op const | 
+    const logical_op id | const logical_op const | "true" | "false".
+logical_op = "<" | "<=" | ">" | ">=" | "==" | "!=".
+
+conditional_stmt = "if" "(" logical_expr ")" "{" statements 
+"}"
+
+
+
+
+
+	
+
+
